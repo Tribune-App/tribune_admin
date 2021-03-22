@@ -35,7 +35,7 @@ class Perfil extends CI_Controller {
             $perfil = array(
                 'nombre'      => $this->security->xss_clean($this->input->post('nombre'))
             );
-            #Enviamos los datos 
+            #Enviamos los datos
             $this->perfil_model->save($perfil);
 
             #Redirecionamos a la lista de perfiles
@@ -43,7 +43,7 @@ class Perfil extends CI_Controller {
             redirect(base_url('panel/mant_perfil'));
         }
     }
-    
+
     #Actualizamos el perfil
     public function update(){
         #Validamos los campos del formulario
@@ -57,7 +57,7 @@ class Perfil extends CI_Controller {
         }else {
             #Obtenemos el valor
             $id_perfil = $this->security->xss_clean($this->input->post('id_perfil'));
-            #Datos del perfil 
+            #Datos del perfil
             $perfil = array(
                 'nombre' 		=> $this->security->xss_clean($this->input->post('edit_nombre'))
             );
@@ -72,7 +72,7 @@ class Perfil extends CI_Controller {
 
     #Eliminar perfil
     public function eliminar()
-    {   
+    {
         $id_perfil=$this->security->xss_clean($this->uri->segment(3));
         if(isset($id_perfil)){
             #Eliminamos el perfil
