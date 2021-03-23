@@ -38,7 +38,7 @@
                   <li><a><i class="fa fa-desktop"></i> Mantenimientos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <?php if($this->session->id_perfil==1){  ?>
-                        <li><a href="#">Publicaciones</a></li>
+                        <li><a href="<?php echo base_url('panel/mant_publicacion'); ?>">Publicaciones</a></li>
                       <?php }  ?>
                     </ul>
                   </li>
@@ -91,9 +91,8 @@
                 <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-6">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-list red"></i></div>
-                    <div class="count"><?php $total_perfiles=0; if(is_array($perfiles)){ echo $total_perfiles=count($perfiles); } else{ echo $total_perfiles;} ?></div>
+                    <div class="count"><?php $total_publicaciones=0; if(is_array($publicaciones)){ echo $total_publicaciones=count($publicaciones); } else{ echo $total_publicaciones;} ?></div>
                     <h4 style="padding-left:10px">Publicaciones</h4>
-                    <h6 style="padding-left:10px"><label><?php $total_perfiles_hacedias=0; if(is_array($perfiles_hacedias)){ echo $total_perfiles_hacedias=count($perfiles_hacedias); } else{ echo $total_perfiles_hacedias;} ?></label> &bull; Hace (1) día</h6>
                   </div>
                 </div>
               </a>
