@@ -50,64 +50,23 @@
                 "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
             },
         });
-        
-        $('#mdlEditarPerfil').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget);
-          var id_perfil = button.data('idperfil');
-          var modal = $(this);
-          $('.loading').show();
-          $('#id_perfil').val(id_perfil);
-          console.log(id_perfil);
-          params = {csrfsn: csrfsn, id_perfil: id_perfil }
-          $.post(base_url+'ajax/getperfil/', params, function(data){
-              if(data.status > 0){
-                  console.log(data);
-                  $('#edit_nombre').val(data.perfiles.nombre);
-                  
-                  $('.loading').hide();
-              }else{
-                  alert('No hay datos disponibles para el mensaje.');
-                  $('.loading').hide();
-              }
-          });
-        });
 
+         function verPostFile(time){
+             params = {csrfsn: csrfsn, time: time }
+             $.post(base_url+'ajax/getpostfile/', params, function(data){
+                 if(data.status > 0){
+                     //var html="";
+                     console.log(data.postfiles);
 
-        $('#mdlEditarPerfil').on('hidden.bs.modal', function (e) {
-          var modal = $(this);
-          $('#nombre').val('');
-        });
-
-        function eliminarPerfil(id_perfil){
-          swal(
-              {
-                  title: "¿Está seguro que desea ELIMINAR el PERFIL?",
-                  text: "Eliminando Perfil Seleccionado",
-                  type: "warning",
-                  showCancelButton: true,
-                  showLoaderOnConfirm: true,
-                  confirmButtonColor: "#AEDEF4",
-                  confirmButtonText: "SI",
-                  cancelButtonText: "NO",
-                  closeOnConfirm: true,
-                  closeOnCancel: false
-              },
-              function (isConfirm) {
-                  if (isConfirm) {
-                      $.get(base_url + "perfil/eliminar/"+id_perfil, function(data){
-                          if(data.status==1){
-                              //swal("Correcto", data.msg, "success");
-                              location.reload();
-                          }else{
-                              swal("Error", data.msg, "error");
-                          }
-                      })
-                  } else {
-                      swal("Cancelado", "Se canceló la operación", "error");
-                  }
-              }
-          );
-      }
+                     for(var i=0;i<data.postfiles.length;i++){
+                         var ruta='http://localhost/tribune_redsocial_light/'+data.postfiles[i].postFile;
+                         window.open(ruta, '_blank');
+                     }
+                 }else{
+                     alert('No se encontraron PostFile en la publicación');
+                 }
+             });
+         }
     </script>
   </body>
 </html>

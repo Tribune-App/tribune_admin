@@ -23,4 +23,20 @@ class Publicacion_model extends CI_Model {
 
         return false;
     }
+
+    #Obtenemos el postFile de Publicaciones
+    public function getPostFile($where = null)
+    {
+        //Consulta
+        $this->db->select('*');
+        $this->db->from('wo_posts');
+        if(!empty($where)){$this->db->where($where);}
+        $query = $this->db->get();
+        if($query->num_rows() > 0)
+        {
+            return $query->result();
+        }
+
+        return false;
+    }
 }
