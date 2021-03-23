@@ -28,6 +28,9 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>template/gentelella-master/build/css/custom.min.css" rel="stylesheet">
+    
+    <!-- My Styles -->
+    <link href="<?php echo base_url(); ?>public/assets/css/styles.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">

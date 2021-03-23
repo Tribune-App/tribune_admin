@@ -30,4 +30,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>template/gentelella-master/vendors/sweetalert/css/sweetalert.css">
     <!--Chosen  -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>template/gentelella-master/vendors/chosen/bootstrap-chosen.css">
+
+    <!-- My Styles -->
+    <link href="<?php echo base_url(); ?>public/assets/css/styles.css" rel="stylesheet">
   </head>
