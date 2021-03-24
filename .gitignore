@@ -7,6 +7,10 @@
 node_modules/
 dist/
 vendors/
+storage/
+application/logs/
+application/config/config.php
+application/config/database.php
 
 # Compiled Java class files
 *.class
