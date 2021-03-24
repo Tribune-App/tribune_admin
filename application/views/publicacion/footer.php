@@ -67,6 +67,39 @@
                  }
              });
          }
+
+         function eliminarPublicacion(time){
+            swal(
+              {
+                  title: "¿Está seguro que desea ELIMINAR la publicación?",
+                  text: "Eliminando Publicación Seleccionada",
+                  type: "warning",
+                  showCancelButton: true,
+                  showLoaderOnConfirm: true,
+                  confirmButtonColor: "#AEDEF4",
+                  confirmButtonText: "SI",
+                  cancelButtonText: "NO",
+                  closeOnConfirm: true,
+                  closeOnCancel: false
+              },
+              function (isConfirm) {
+                  if (isConfirm) {
+                    params = {csrfsn: csrfsn, time: time }
+                    $.post(base_url+'ajax/deletepost/', params, function(data){
+                        // console.log(data);
+                        if(data.status==1){
+                              //swal("Correcto", data.msg, "success");
+                              location.reload();
+                          }else{
+                              swal("Error", data.msg, "error");
+                          }
+                    });
+                  } else {
+                      swal("Cancelado", "Se canceló la operación", "error");
+                  }
+              }
+          );
+         }
     </script>
   </body>
 </html>

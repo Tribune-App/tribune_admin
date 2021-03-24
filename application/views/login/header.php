@@ -24,6 +24,10 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>template/gentelella-master/build/css/custom.min.css" rel="stylesheet">
+
+    <!-- My Styles -->
+    <link href="<?php echo base_url(); ?>public/assets/css/styles.css" rel="stylesheet">
+
     <script>
         var base_url = '<?php echo base_url(); ?>';
         var <?php echo $this->security->get_csrf_token_name(); ?> = '<?php echo $this->security->get_csrf_hash(); ?>';

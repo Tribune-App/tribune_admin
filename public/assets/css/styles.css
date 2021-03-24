@@ -1,0 +1,63 @@
+:root{
+  --color1: #dd2727;
+  --color2: #2A3F54;
+  --dark: #131313;
+}
+
+/* reset */
+body {
+  font-family: "Roboto",sans-serif;
+}
+
+/* components */
+.color1{
+  color: var(--color1);
+}
+
+.bg-color1{
+  background-color: var(--color1);
+}
+
+/* LOGIN */
+.login{
+  background-color: var(--dark);
+}
+
+.login_wrapper{
+  max-width: 425px;
+}
+
+.login_form{
+  background-color: #fff;
+  padding: 2rem 4rem;
+  box-shadow: 0 5px 30px rgba(0,0,0,.25);
+  border-radius: 10px;
+}
+
+/* inputs */
+.login_content form input[type=text], .login_content form input[type=email], .login_content form input[type=password] {
+  color: #555;
+}
+
+.login_content h1 {
+  color: #444;
+  font-size: 22px;
+  font-weight: 500;
+}
+/* LOGIN */
+
+/* ---------------------------------------------------------------------------------- */
+
+/* nav left */
+.nav_title, .left_col, .sidebar-footer, .sidebar-footer a{
+  background-color: var(--dark);
+}
+
+.sidebar-footer a{
+  color: #fff;
+}
+
+.nav.side-menu>li.active,
+.nav.side-menu>li.current-page {
+  border-right: 5px solid var(--color1);
+}
