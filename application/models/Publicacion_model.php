@@ -39,4 +39,10 @@ class Publicacion_model extends CI_Model {
 
         return false;
     }
+
+    #Eliminar publicaciones
+    public function deletePost($time)
+    {
+        return $this->db->delete('wo_posts', array('time' => $time));
+    }
 }

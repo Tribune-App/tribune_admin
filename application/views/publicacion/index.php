@@ -162,7 +162,7 @@
                           <td><?php echo $publicacion->registered; ?></td>
                           <td>
                               <button onclick="censurarPublicacion('<?php echo $publicacion->id; ?>')" class="btn btn-sm btn-warning m-b-none" data-toggle="tooltip" data-placement="top" title="Censurar Publicación"><i class="fa fa-ban"></i></button>
-                              <button onclick="eliminarPublicacion('<?php echo $publicacion->id; ?>')" class="btn btn-sm btn-danger m-b-none" data-toggle="tooltip" data-placement="top" title="Eliminar Publicación"><i class="fa fa-trash"></i></button>
+                              <button onclick="eliminarPublicacion('<?php echo $publicacion->time; ?>')" class="btn btn-sm btn-danger m-b-none" data-toggle="tooltip" data-placement="top" title="Eliminar Publicación"><i class="fa fa-trash"></i></button>
                           </td>
                         </tr>
                         <?php } endif;?>

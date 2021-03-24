@@ -35,5 +35,18 @@ class Ajax extends CI_Controller {
         $this->responseJSON($response);
     }
 
+    #Obtenemos los datos del PostFile
+    public function deletepost()
+    {
+        $time = $this->security->xss_clean($this->input->post('time'));
+        $response = array('status' => 0);
+        $post = $this->publicacion_model->deletePost($time);
+        if($post){
+            $response = array('status' => 1, 'post' => $post );
+        }
+
+        $this->responseJSON($response);
+    }
+
 
 }
