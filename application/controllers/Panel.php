@@ -24,7 +24,8 @@ class Panel extends CI_Controller {
 		$data['titulo'] = "DASHBOARD";
         #Traemos las publicaciones
         $data['publicaciones'] = $this->publicacion_model->getPublicaciones(array('postType' => array('post','profile_picture')));
-
+        #Traemos los usuarios
+        $data['usuarios'] = $this->usuario_model->getUsuarios();
 		$this->load->view('dashboard/header', $data);
 		$this->load->view('dashboard/index');
 		$this->load->view('dashboard/footer');
@@ -46,5 +47,22 @@ class Panel extends CI_Controller {
 			redirect(base_url('login/logout'));
 		}
 	}
+
+    public function mant_usuario()
+    {
+        //Administrador:1
+        if($this->session->id_perfil==1){
+            #Título de la página
+            $data['titulo'] = "USUARIO";
+            #Traemos los usuarios
+            $data['usuarios'] = $this->usuario_model->getUsuarios();
+
+            $this->load->view('usuario/header', $data);
+            $this->load->view('usuario/index');
+            $this->load->view('usuario/footer');
+        }else{
+            redirect(base_url('login/logout'));
+        }
+    }
 
 }

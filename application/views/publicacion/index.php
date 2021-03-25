@@ -39,6 +39,7 @@
                   <li><a><i class="fa fa-desktop"></i> Mantenimientos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <?php if($this->session->id_perfil==1){  ?>
+                        <li><a href="<?php echo base_url('panel/mant_usuario'); ?>">Usuarios</a></li>
                         <li><a href="<?php echo base_url('panel/mant_publicacion'); ?>">Publicaciones</a></li>
                       <?php }  ?>
                     </ul>
