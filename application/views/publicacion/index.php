@@ -119,13 +119,16 @@
                       <thead>
                         <tr>
                           <th>ID</th>
+                          <th>Usuario</th>
+                          <th>Login</th>
                           <th>Tipo</th>
                           <th>Texto</th>
                           <th>Archivo(s)</th>
                           <th>Sticker</th>
                           <th>Sentimiento</th>
                           <th>Mapa</th>
-                          <th>Registro</th>
+                          <th>Fecha</th>
+                          <th>Hora</th>
                           <th>Opciones</th>
                         </tr>
                       </thead>
@@ -136,6 +139,8 @@
                         ?>
                         <tr>
                           <td><?php echo $publicacion->id; ?></td>
+                          <td><?php echo $publicacion->first_name." ".$publicacion->last_name; ?></td>
+                          <td><?php echo $publicacion->username; ?></td>
                           <td><?php echo $publicacion->postType; ?></td>
                           <td><?php echo substr($publicacion->postText, 0, 80); ?></td>
                           <td>
@@ -159,7 +164,8 @@
                           </td>
                           <td><?php echo $publicacion->postFeeling; ?></td>
                           <td><?php echo $publicacion->postMap; ?></td>
-                          <td><?php echo $publicacion->registered; ?></td>
+                          <td><?php echo(date("d/m/Y", $publicacion->time)); ?></td>
+                          <td><?php echo(date("H:i:s", $publicacion->time)); ?></td>
                           <td>
                               <button onclick="censurarPublicacion('<?php echo $publicacion->id; ?>')" class="btn btn-sm btn-warning m-b-none" data-toggle="tooltip" data-placement="top" title="Censurar Publicación"><i class="fa fa-ban"></i></button>
                               <button onclick="eliminarPublicacion('<?php echo $publicacion->time; ?>')" class="btn btn-sm btn-danger m-b-none" data-toggle="tooltip" data-placement="top" title="Eliminar Publicación"><i class="fa fa-trash"></i></button>
@@ -179,7 +185,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            ©2019 All Rights Reserved. Privacy and Terms. Tienda POS <i class="fa fa-heart"></i> Bitlogy
+              ©2021 All Rights Reserved. Privacy and Terms. Tribune SRL
           </div>
           <div class="clearfix"></div>
         </footer>
