@@ -161,7 +161,12 @@
                           <td><?php echo $publicacion->postMap; ?></td>
                           <td><?php echo $publicacion->registered; ?></td>
                           <td>
-                              <button onclick="censurarPublicacion('<?php echo $publicacion->id; ?>')" class="btn btn-sm btn-warning m-b-none" data-toggle="tooltip" data-placement="top" title="Censurar Publicación"><i class="fa fa-ban"></i></button>
+                             <?php if($publicacion->is_censured == 0){
+                                  echo '<button onclick="censurarPublicacion('.$publicacion->time.', 1)" class="btn btn-sm btn-warning m-b-none" data-toggle="tooltip" data-placement="top" title="Censurar Publicación"><i class="fa fa-ban"></i></button>';
+                                }else{
+                                  echo '<button onclick="censurarPublicacion('.$publicacion->time.', 0)" class="btn btn-sm btn-success m-b-none" data-toggle="tooltip" data-placement="top" title="Censurar Publicación"><i class="fa fa-check"></i></button>';
+                              }
+                              ?>
                               <button onclick="eliminarPublicacion('<?php echo $publicacion->time; ?>')" class="btn btn-sm btn-danger m-b-none" data-toggle="tooltip" data-placement="top" title="Eliminar Publicación"><i class="fa fa-trash"></i></button>
                           </td>
                         </tr>

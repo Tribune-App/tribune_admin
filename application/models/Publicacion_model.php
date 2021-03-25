@@ -45,4 +45,11 @@ class Publicacion_model extends CI_Model {
     {
         return $this->db->delete('wo_posts', array('time' => $time));
     }
+
+    #Actualizar/Censurar publicaciones
+    public function updateCenduredPost($time, $valor)
+    {
+        $this->db->where('time', $time);
+        return $this->db->update('wo_posts',array('is_censured' => $valor));
+    }
 }
