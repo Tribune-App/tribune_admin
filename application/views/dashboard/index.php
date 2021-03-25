@@ -87,7 +87,7 @@
 
           <div class="row tile_count">
             <?php if($this->session->id_perfil==1){  ?>
-              <a href="#">
+              <a href="<?php echo base_url('panel/mant_publicacion'); ?>">
                 <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-6">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-list red"></i></div>
