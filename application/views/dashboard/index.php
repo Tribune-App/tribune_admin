@@ -38,7 +38,8 @@
                   <li><a><i class="fa fa-desktop"></i> Mantenimientos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <?php if($this->session->id_perfil==1){  ?>
-                        <li><a href="<?php echo base_url('panel/mant_publicacion'); ?>">Publicaciones</a></li>
+                          <li><a href="<?php echo base_url('panel/mant_usuario'); ?>">Usuarios</a></li>
+                          <li><a href="<?php echo base_url('panel/mant_publicacion'); ?>">Publicaciones</a></li>
                       <?php }  ?>
                     </ul>
                   </li>
@@ -87,6 +88,15 @@
 
           <div class="row tile_count">
             <?php if($this->session->id_perfil==1){  ?>
+                <a href="<?php echo base_url('panel/mant_usuario'); ?>">
+                    <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-6">
+                        <div class="tile-stats">
+                            <div class="icon"><i class="fa fa-user red"></i></div>
+                            <div class="count"><?php $total_usuarios=0; if(is_array($usuarios)){ echo $total_usuarios=count($usuarios); } else{ echo $total_usuarios;} ?></div>
+                            <h4 style="padding-left:10px">Usuarios</h4>
+                        </div>
+                    </div>
+                </a>
               <a href="<?php echo base_url('panel/mant_publicacion'); ?>">
                 <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-6">
                   <div class="tile-stats">
