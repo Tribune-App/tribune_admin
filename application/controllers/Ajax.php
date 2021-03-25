@@ -48,5 +48,18 @@ class Ajax extends CI_Controller {
         $this->responseJSON($response);
     }
 
+    #Actualizar/Censurar posts
+    public function update_cendured_post()
+    {
+        $time = $this->security->xss_clean($this->input->post('time'));
+        $valor = $this->security->xss_clean($this->input->post('valor'));
+        $response = array('status' => 0);
+        $post = $this->publicacion_model->updateCenduredPost($time, $valor);
+        if($post){
+            $response = array('status' => 1, 'post' => $post );
+        }
+
+        $this->responseJSON($response);
+    }
 
 }
