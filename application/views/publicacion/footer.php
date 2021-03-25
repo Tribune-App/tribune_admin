@@ -102,8 +102,8 @@
          }
 
          function censurarPublicacion(time, valor){
-            var msg= (valor== 1 ? "¿Está seguro que desea CENSURAR la publicación?" : "¿Está seguro que desea HABILIDAR la publicación?");
-            var subtitle= (valor== 1 ? "Censurando Publicación Seleccionada" : "Habilidar Publicación Seleccionada");
+            var msg= (valor== 1 ? "¿Está seguro que desea CENSURAR la publicación?" : "¿Está seguro que desea HABILITAR la publicación?");
+            var subtitle= (valor== 1 ? "Censurando Publicación Seleccionada" : "Habilitando Publicación Seleccionada");
 
             swal(
               {
