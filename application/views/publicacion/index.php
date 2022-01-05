@@ -146,7 +146,7 @@
                           <td><?php echo substr($publicacion->postText, 0, 80); ?></td>
                           <td>
                               <?php if(!empty($publicacion->postFile)){
-                                  $ruta= 'http://localhost/tribune_redsocial_light/'.$publicacion->postFile;
+                                  $ruta= 'http://tribune.pe/'.$publicacion->postFile;
                                   echo '<a target="_blank" href="'.$ruta.'">Ver <i class="fa fa-eye"></i></a>';
                               }elseif($publicacion->multi_image==1){
                                   echo '<a href="#" onclick="verPostFile('.$publicacion->time.')">Ver <i class="fa fa-eye"></i></a>';

@@ -59,7 +59,7 @@
                      console.log(data.postfiles);
 
                      for(var i=0;i<data.postfiles.length;i++){
-                         var ruta='http://localhost/tribune_redsocial_light/'+data.postfiles[i].postFile;
+                         var ruta='https://tribune.pe/'+data.postfiles[i].postFile;
                          window.open(ruta, '_blank');
                      }
                  }else{

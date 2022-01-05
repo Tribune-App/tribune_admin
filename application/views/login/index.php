@@ -9,10 +9,10 @@
             <?php echo form_open(base_url(), array('class' => 'm-t'));?>
               <h1>TRIBUNE - ADMIN</h1>
               <div>
-                <input type="text" class="form-control" name="login" placeholder="Usuario" required="" value="20607470961"/>
+                <input type="text" class="form-control" name="login" placeholder="Usuario" required="" value=""/>
               </div>
               <div>
-                <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required="" value="20607470961"/>
+                <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required="" value=""/>
               </div>
               <div>
                 <button type="submit" class="btn btn-danger btn-block">Ingresar</button>

@@ -11,10 +11,10 @@ class Publicacion_model extends CI_Model {
     public function getPublicaciones($where = null)
     {
         //Consulta
-        $this->db->select('wo_posts.*,wo_users.first_name,wo_users.last_name,wo_users.username');
-        $this->db->from('wo_posts');
+        $this->db->select('Wo_Posts.*,Wo_Users.first_name,Wo_Users.last_name,Wo_Users.username');
+        $this->db->from('Wo_Posts');
         $this->db->group_by('time');
-        $this->db->join('wo_users', 'wo_users.user_id = wo_posts.user_id');
+        $this->db->join('Wo_Users', 'Wo_Users.user_id = Wo_Posts.user_id');
         if(!empty($where)){$this->db->where_in($where);}
         $query = $this->db->get();
         if($query->num_rows() > 0)
@@ -30,7 +30,7 @@ class Publicacion_model extends CI_Model {
     {
         //Consulta
         $this->db->select('*');
-        $this->db->from('wo_posts');
+        $this->db->from('Wo_Posts');
         if(!empty($where)){$this->db->where($where);}
         $query = $this->db->get();
         if($query->num_rows() > 0)
@@ -44,13 +44,13 @@ class Publicacion_model extends CI_Model {
     #Eliminar publicaciones
     public function deletePost($time)
     {
-        return $this->db->delete('wo_posts', array('time' => $time));
+        return $this->db->delete('Wo_Posts', array('time' => $time));
     }
 
     #Actualizar/Censurar publicaciones
     public function updateCenduredPost($time, $valor)
     {
         $this->db->where('time', $time);
-        return $this->db->update('wo_posts',array('is_censured' => $valor));
+        return $this->db->update('Wo_Posts',array('is_censured' => $valor));
     }
 }
