@@ -15,7 +15,11 @@ class Publicacion_model extends CI_Model {
         $this->db->from('Wo_Posts');
         $this->db->group_by('time');
         $this->db->join('Wo_Users', 'Wo_Users.user_id = Wo_Posts.user_id');
-        if(!empty($where)){$this->db->where_in($where);}
+        if(!empty($where)){
+            foreach ($where as $k => $w) {
+                $this->db->where_in($k, $w);
+            }
+        }
         $query = $this->db->get();
         if($query->num_rows() > 0)
         {

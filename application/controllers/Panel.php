@@ -38,7 +38,15 @@ class Panel extends CI_Controller {
 			#Título de la página
 			$data['titulo'] = "PUBLICACIÓN";
 		    #Traemos las publicaciones
-	        $data['publicaciones'] = $this->publicacion_model->getPublicaciones(array('postType' => array('post','profile_picture')));
+			$where = array(
+				'postType' => array('post','profile_picture'),
+			);
+			
+			if( $this->input->get("is_censured") != null ){
+				$where["is_censured"] = array($this->input->get("is_censured"));
+			}
+
+	        $data['publicaciones'] = $this->publicacion_model->getPublicaciones($where);
 
 			$this->load->view('publicacion/header', $data);
 			$this->load->view('publicacion/index');

@@ -112,10 +112,21 @@
                     <div class="row">
                         <div class="col-md-12"><?php if ($this->session->flashdata('msg')){ echo $this->session->flashdata('msg'); } ?></div>
                     </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-md-4 mb-5" style="margin-bottom: 20px;">
+                        <select name="" id="" class="form-control">
+                          <option value="" >Seleccionar opcion</option>
+                          <option value="" >Todos</option>
+                          <option value="is_censured:1">Censurados</option>
+                          <option value="is_censured:0">No Censurados</option>
+                        </select>
+                      </div>
+                    </div>
                     <p>
                       Actualizado el <?php echo date('j'); ?>/<?php echo date('m'); ?>/<?php echo date('Y'); ?> a las <?php echo date('H'); ?>:<?php echo date('i'); ?>:<?php echo date('s'); ?>
                     </p>
-
+                    
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>

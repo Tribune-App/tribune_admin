@@ -136,6 +136,19 @@
               }
           );
          }
+
+         $('select').on('change', function() {
+
+            var value = $(this).val();
+            console.log(value, "valuevaluevaluevalue")
+            var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            if( value != ""){
+                var _a = value.split(":");
+                newurl += '?'+_a[0]+'='+_a[1]+'';
+            }
+            window.history.pushState({path:newurl},'',newurl);
+            location.reload();
+        });
     </script>
   </body>
 </html>
