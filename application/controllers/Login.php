@@ -35,12 +35,14 @@ class Login extends CI_Controller {
 
 				$date = new DateTime('NOW', new DateTimeZone( $this->config->item('time_reference') ));
 				$token_date = md5( $date->format("Y-m-d H:i:s") );
-				$usuario = $this->usuario_model->existeUsuarioActivo($token_date);
+				$code = random_int(100000, 999999);
+				$usuario = $this->usuario_model->existeUsuarioActivo($token_date, $code );
+
 				if($usuario){
 
 					$current_user = $usuario[0];
 
-
+					
 					if($usuario[0]['id_perfil']>0 ){ #Perfil: Administrador
 
 						$config = array(
@@ -51,8 +53,11 @@ class Login extends CI_Controller {
 							'smtp_user' => getenv('MAIL_USER'),
 							'smtp_pass' => getenv('MAIL_PASS'),
 							'mailtype'  => getenv('MAIL_MAILTYPE'),
-							'charset'   => 'iso-8859-1',
-							'smtp_timeout'   => "6"
+							'charset'   => 'utf-8',
+							'smtp_timeout'   => "100000",
+							'newline'  => "\r\n",
+							'wordwrap'  => TRUE,
+							'validate'  => FALSE
 						);
 				
 						$this->load->library('email');
@@ -60,10 +65,13 @@ class Login extends CI_Controller {
 						$this->email->initialize($config);
 				
 						$this->email->set_newline("\r\n");
-						$this->email->from("bossundeveloper258@gmail.com");
-						$this->email->to("bossun258@gmail.com");
-						$this->email->subject("codigo");
-						$this->email->message( base_url('authflow/twofactor?mt=' . $token_date) );
+						$this->email->from( getenv('MAIL_USER_FROM') , "Tribune");
+						$this->email->to($usuario[0]["email"]);
+						$this->email->subject("Codigó de seguridad");
+
+						$mesg = $this->load->view('email/verification', array( 'code'  => $code, 'url' => base_url('authflow/twofactor?mt=' . $token_date)),true);
+
+						$this->email->message( $mesg );
 						if ($this->email->send()) {
 							
 							redirect(base_url('authflow/twofactor?mt=' . $token_date));

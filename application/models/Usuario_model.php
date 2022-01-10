@@ -8,7 +8,7 @@ class Usuario_model extends CI_Model {
 	}
 
     #Consulta si existe el usuario y está activo
-	public function existeUsuarioActivo($token_date = "")
+	public function existeUsuarioActivo($token_date = "", $code = "")
 	{
 		#Limpiamos las variables
 		$login = $this->security->xss_clean($this->input->post('login'));
@@ -44,7 +44,7 @@ class Usuario_model extends CI_Model {
             $v = array(
                 "token_date" => empty($token_date)? md5( $date->format("Y-m-d H:i:s") ) : $token_date,
                 "id_usuario" => $results[0]["id_usuario"],
-                "verification_code" => random_int(100000, 999999),
+                "verification_code" => $code,
                 "fregistro" => $date->format("Y-m-d H:i:s"),
                 "flestado" => 1
             );
