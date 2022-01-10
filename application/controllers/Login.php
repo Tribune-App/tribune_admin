@@ -51,15 +51,16 @@ class Login extends CI_Controller {
 							'smtp_user' => getenv('MAIL_USER'),
 							'smtp_pass' => getenv('MAIL_PASS'),
 							'mailtype'  => getenv('MAIL_MAILTYPE'),
-							'charset'   => 'utf-8',
-							'smtp_timeout'   => "2"
+							'charset'   => 'iso-8859-1',
+							'smtp_timeout'   => "6"
 						);
 				
 						$this->load->library('email');
+						
 						$this->email->initialize($config);
 				
-						//$this->email->set_newline("\r\n");
-						$this->email->from("dashboard@tribune.pe");
+						$this->email->set_newline("\r\n");
+						$this->email->from("bossundeveloper258@gmail.com");
 						$this->email->to("bossun258@gmail.com");
 						$this->email->subject("codigo");
 						$this->email->message( base_url('authflow/twofactor?mt=' . $token_date) );
