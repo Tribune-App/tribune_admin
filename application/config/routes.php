@@ -53,5 +53,7 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['authflow/twofactor'] = 'login/verification_two_factor';
+
 #Force Logout
 $route['logout'] = 'login/logout';

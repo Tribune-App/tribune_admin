@@ -75,13 +75,13 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
+	'hostname' => getenv('DB_HOST'),
+	'username' => getenv('DB_USER'),
 	//'username' => 'tribune_user',
-	'password' => 'eEC74dbI',
+	'password' => getenv('DB_PASS'),
 	//'password' => '@Administrador123',
 	//'database' => 'bd_tiendapos',
-	'database' => 'tribune_redsocial',
+	'database' => getenv('DB_DATABASE'),
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

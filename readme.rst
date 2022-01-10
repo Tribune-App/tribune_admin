@@ -68,3 +68,8 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+***************
+PHP dotenv for codeigniter
+***************
+Create .env according your environment by copy file .env.example for database configuration and the other configuration. Example : .env.development, .env.testing, .env.production

@@ -53,8 +53,8 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
-	define('ENVIRONMENT', 'development');		
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	//define('ENVIRONMENT', 'development');		
 
 /*
  *---------------------------------------------------------------
@@ -90,7 +90,6 @@ switch (ENVIRONMENT)
 		exit(1); // EXIT_ERROR
 }
 
-ini_set('display_errors', 1);
 /*
  *---------------------------------------------------------------
  * SYSTEM DIRECTORY NAME
@@ -308,6 +307,20 @@ ini_set('display_errors', 1);
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
 /*
+	* --------------------------------------------------------------------
+	* LOAD PHP DOT ENV FILE
+	* --------------------------------------------------------------------
+	*
+	* And away we go...
+	*
+	*/
+	require_once BASEPATH . 'dotenv/autoloader.php';
+
+	$dotenv = new Dotenv\Dotenv(__DIR__);
+	$dotenv->load();
+
+	
+/*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
  * --------------------------------------------------------------------
@@ -315,3 +328,5 @@ ini_set('display_errors', 1);
  * And away we go...
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+
+

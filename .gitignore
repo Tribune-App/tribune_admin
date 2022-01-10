@@ -5,8 +5,8 @@
 
 # Node artifact files
 node_modules/
-dist/
-vendors/
+#dist/
+#vendors/
 
 storage/sessions/
 application/logs/
@@ -31,7 +31,7 @@ application/config/database.php
 
 # Maven
 target/
-dist/
+#dist/
 
 # JetBrains IDE
 .idea/
@@ -58,3 +58,5 @@ Thumbs.db
 *.mov
 *.wmv
 
+.env
+.env.*

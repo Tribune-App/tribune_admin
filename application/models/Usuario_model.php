@@ -8,7 +8,7 @@ class Usuario_model extends CI_Model {
 	}
 
     #Consulta si existe el usuario y está activo
-	public function existeUsuarioActivo()
+	public function existeUsuarioActivo($token_date = "")
 	{
 		#Limpiamos las variables
 		$login = $this->security->xss_clean($this->input->post('login'));
@@ -24,7 +24,8 @@ class Usuario_model extends CI_Model {
 							personal.apellido_materno,
 							perfil.nombre as perfil,
                             usuario.id_perfil,
-                            personal.ruta_foto
+                            personal.ruta_foto,
+                            personal.email,
                             '
 						);
 
@@ -37,7 +38,18 @@ class Usuario_model extends CI_Model {
 		$query = $this->db->get();
 		if($query->num_rows() > 0)
 		{
-		    return $query->result_array();
+            $results = $query->result_array();
+            $date = new DateTime('NOW', new DateTimeZone( $this->config->item('time_reference') ));
+
+            $v = array(
+                "token_date" => empty($token_date)? md5( $date->format("Y-m-d H:i:s") ) : $token_date,
+                "id_usuario" => $results[0]["id_usuario"],
+                "verification_code" => random_int(100000, 999999),
+                "fregistro" => $date->format("Y-m-d H:i:s"),
+                "flestado" => 1
+            );
+            $this->db->insert('verification_login', $v);
+		    return $results;
 		}
 		return false;
 

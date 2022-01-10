@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://165.227.43.42/';
+$config['base_url'] = getenv('APP_LOCAL');
 
 
 /*
@@ -522,3 +522,12 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+/*
+|--------------------------------------------------------------------------
+| Emails
+|--------------------------------------------------------------------------
+|
+*/
+$config['mail_smtp_crypto'] = getenv('MAIL_CRYPTO');
